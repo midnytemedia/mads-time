@@ -46,9 +46,10 @@
     .stat{text-align:right}
     .stat-label{font-size:10px;color:var(--text-dim);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
     .stat-value{font-size:17px;font-weight:600;font-variant-numeric:tabular-nums}
-    .content{padding:24px 28px;max-width:960px;width:100%}
+    .content{padding:24px 28px;width:100%}
 
     .page{display:none}.page.active{display:block}
+    .method-panel{display:none}.method-panel.active{display:block}
 
     /* ── Cards ── */
     .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:22px;box-shadow:var(--shadow);margin-bottom:20px}
@@ -151,7 +152,7 @@
 
     /* ── Desktop wide ── */
     @media(min-width:1200px){
-      .content{max-width:1060px}
+      .content{padding:28px 40px}
     }
 
     /* ── Tablet ── */

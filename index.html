@@ -39,14 +39,14 @@
     .staff-sel:focus{border-color:var(--accent)}
     .staff-sel-label{font-size:11px;color:var(--text-dim);margin-bottom:4px;font-weight:500}
 
-    .main{margin-left:250px;flex:1;min-height:100vh}
+    .main{margin-left:250px;flex:1;min-height:100vh;min-width:0}
     .topbar{padding:14px 28px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;background:var(--surface);flex-wrap:wrap;gap:10px}
     .topbar h1{font-size:17px;font-weight:600}
     .topbar-stats{display:flex;gap:18px}
     .stat{text-align:right}
     .stat-label{font-size:10px;color:var(--text-dim);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
     .stat-value{font-size:17px;font-weight:600;font-variant-numeric:tabular-nums}
-    .content{padding:24px 28px;max-width:960px}
+    .content{padding:24px 28px;max-width:960px;width:100%}
 
     .page{display:none}.page.active{display:block}
 
@@ -91,7 +91,7 @@
     .li:hover{border-color:var(--border-hover)}
     .avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;margin-right:12px;flex-shrink:0}
     .li-info{flex:1;min-width:0}
-    .li-name{font-size:13.5px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .li-name{font-size:13.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis}
     .li-detail{font-size:11.5px;color:var(--text-dim);margin-top:1px}
     .li-actions{display:flex;gap:6px;margin-left:10px;flex-shrink:0}
 
@@ -100,7 +100,7 @@
     .entry:hover{border-color:var(--border-hover)}
     .entry-color{width:4px;height:30px;border-radius:2px;margin-right:12px;flex-shrink:0}
     .entry-info{flex:1;min-width:0}
-    .entry-desc{font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .entry-desc{font-size:13px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:normal;word-break:break-word}
     .entry-meta{font-size:11px;color:var(--text-dim);margin-top:2px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
     .entry-tag{display:inline-flex;align-items:center;font-size:10.5px;padding:2px 7px;border-radius:4px;font-weight:500}
     .entry-dur{font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;margin-left:10px;flex-shrink:0}
@@ -149,25 +149,65 @@
     .hamburger svg{width:24px;height:24px}
     .sidebar-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);z-index:99}
 
-    /* ── Mobile ── */
+    /* ── Desktop wide ── */
+    @media(min-width:1200px){
+      .content{max-width:1060px}
+    }
+
+    /* ── Tablet ── */
+    @media(max-width:1024px){
+      .sidebar{width:220px}
+      .main{margin-left:220px}
+      .content{padding:20px 20px}
+      .topbar{padding:14px 20px}
+    }
+
+    /* ── Mobile / Tablet small ── */
     @media(max-width:768px){
       .hamburger{display:block}
-      .sidebar{transform:translateX(-100%)}
+      .sidebar{width:270px;transform:translateX(-100%)}
       .sidebar.open{transform:translateX(0)}
       .sidebar-overlay.open{display:block}
       .main{margin-left:0}
-      .content{padding:16px 14px}
-      .topbar{padding:12px 14px}
-      .sw-time{font-size:40px}
+      .content{padding:16px 12px}
+      .topbar{padding:12px 12px}
+      .card{padding:16px}
+      .sw-time{font-size:42px}
       .fr{flex-direction:column;gap:0}
       .ir{flex-direction:column;align-items:stretch}
-      .ir .btn{align-self:flex-end}
+      .ir .btn{align-self:stretch;justify-content:center}
       .fbar{flex-direction:column}
       .fbar .fsel,.fbar .fi{width:100%;min-width:0}
       .rtable{font-size:12px}
       .rtable th,.rtable td{padding:6px 6px}
       .topbar-stats{gap:12px}
       .stat-value{font-size:15px}
+      /* Bigger buttons on mobile */
+      .btn{padding:12px 22px;font-size:14px;border-radius:10px}
+      .btn svg{width:17px;height:17px}
+      .btn-sm{padding:10px 16px;font-size:13px}
+      .sw-controls .btn{padding:14px 28px;font-size:15px}
+      .nav-item{padding:12px 14px;font-size:14px}
+      .nav-item svg{width:20px;height:20px}
+      .fi,.fsel{padding:11px 14px;font-size:14px}
+      .fsel{padding-right:30px}
+      .mtab{padding:10px 14px;font-size:13px}
+      /* Entry delete always visible on touch */
+      .entry-del{opacity:1;font-size:18px;padding:6px 10px}
+      /* List item actions stack */
+      .li{flex-wrap:wrap}
+      .li-actions{width:100%;margin-left:48px;margin-top:8px}
+      .li-actions .btn{flex:1;justify-content:center}
+      /* Modal full-width */
+      .modal{padding:20px;width:100%}
+    }
+
+    /* ── Very small phones ── */
+    @media(max-width:400px){
+      .sw-time{font-size:36px}
+      .content{padding:12px 10px}
+      .topbar h1{font-size:15px}
+      .card{padding:14px}
     }
   </style>
 </head>
